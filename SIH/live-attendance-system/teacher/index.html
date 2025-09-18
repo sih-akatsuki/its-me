@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher - Live Attendance System</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>👨‍🏫 Teacher Dashboard</h1>
+            <p>Control live attendance sessions</p>
+        </header>
+        
+        <main>
+            <div class="attendance-control">
+                <div class="status-card">
+                    <h2>Attendance Status</h2>
+                    <div class="status-indicator">
+                        <div id="status-light" class="status-light stopped"></div>
+                        <span id="status-text" class="status-text">Stopped</span>
+                    </div>
+                </div>
+                
+                <div class="control-buttons">
+                    <button id="start-btn" class="btn btn-start">
+                        <span class="btn-icon">▶️</span>
+                        Start Attendance
+                    </button>
+                    <button id="stop-btn" class="btn btn-stop" disabled>
+                        <span class="btn-icon">⏹️</span>
+                        Stop Attendance
+                    </button>
+                </div>
+            </div>
+            
+            <div class="session-info">
+                <h3>Current Session</h3>
+                <div id="session-details" class="session-card">
+                    <p>No active session</p>
+                </div>
+            </div>
+            
+            <div class="attendance-list">
+                <h3>Students Present</h3>
+                <div id="students-list" class="students-container">
+                    <p class="no-students">No students marked present yet</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Firebase CDN -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-compat.js"></script>
+    
+    <!-- Application Scripts -->
+    <script src="../js/firebase-config.js"></script>
+    <script src="../js/teacher.js"></script>
+</body>
+</html>

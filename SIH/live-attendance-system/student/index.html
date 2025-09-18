@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student - Live Attendance System</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎓 Student Portal</h1>
+            <p>Mark your attendance when live</p>
+        </header>
+        
+        <main>
+            <div class="attendance-status">
+                <div class="status-card">
+                    <h2>Attendance Status</h2>
+                    <div class="status-indicator">
+                        <div id="status-light" class="status-light stopped"></div>
+                        <span id="status-text" class="status-text">Attendance Not Active</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="attendance-form">
+                <div id="form-container" class="form-card">
+                    <div id="inactive-message" class="inactive-message">
+                        <h3>⏳ Waiting for Teacher</h3>
+                        <p>Attendance is not currently active. Please wait for your teacher to start the attendance session.</p>
+                    </div>
+                    
+                    <div id="active-form" class="active-form" style="display: none;">
+                        <h3>✅ Mark Your Attendance</h3>
+                        <form id="attendance-form">
+                            <div class="form-group">
+                                <label for="student-name">Your Full Name:</label>
+                                <input type="text" id="student-name" name="studentName" placeholder="Enter your full name" required>
+                            </div>
+                            <button type="submit" class="btn btn-present">
+                                <span class="btn-icon">✋</span>
+                                Mark as Present
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div id="camera-verification" class="camera-verification" style="display: none;">
+                        <h3>📷 Face Verification</h3>
+                        <p>Please look at the camera for face verification...</p>
+                        <div class="camera-container">
+                            <video id="camera-video" autoplay muted></video>
+                            <div id="verification-overlay" class="verification-overlay">
+                                <div class="scanning-line"></div>
+                                <div class="face-outline"></div>
+                            </div>
+                        </div>
+                        <div id="verification-status" class="verification-status">
+                            <span id="status-message">Initializing camera...</span>
+                        </div>
+                    </div>
+                    
+                    <div id="success-message" class="success-message" style="display: none;">
+                        <h3>🎉 Attendance Marked!</h3>
+                        <p>Thank you, <span id="confirmed-name"></span>! Your attendance has been recorded successfully.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="session-info">
+                <h3>Session Details</h3>
+                <div id="session-details" class="session-card">
+                    <p>No active session</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Firebase CDN -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-compat.js"></script>
+    
+    <!-- Application Scripts -->
+    <script src="../js/firebase-config.js"></script>
+    <script src="../js/student.js"></script>
+</body>
+</html>
